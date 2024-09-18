@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 
+
 class AuthServiceProvider extends ServiceProvider
 {
     protected string $moduleName = 'Auth';
@@ -27,6 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         Passport::tokensExpireIn(now()->addDays(15));
         Passport::refreshTokensExpireIn(now()->addDays(30));
         Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+
     }
 
     /**

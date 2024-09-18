@@ -14,6 +14,7 @@
         "laravel/passport": "^12.3",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "nesbot/carbon": "^2.72",
         "nwidart/laravel-modules": "^10"
     },
     "require-dev": {
