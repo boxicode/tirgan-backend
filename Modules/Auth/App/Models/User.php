@@ -23,6 +23,7 @@ class User extends Authenticatable
         'gender',
         'email',
         'mobile_number',
+        'activation_token',
         'password',
         'register_ip',
         'active',

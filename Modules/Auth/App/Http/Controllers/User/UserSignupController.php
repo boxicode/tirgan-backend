@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Modules\Auth\App\Events\SignedupProcessed;
 use Modules\Auth\App\Models\User;
 
 class UserSignupController extends Controller
@@ -39,16 +41,20 @@ class UserSignupController extends Controller
             'last_name' => $request->last_name,
             'gender' => $request->gender,
             'email' => $request->email,
+            'activation_token' => Str::random(60),
             'password' => bcrypt($request->password),
             'register_ip' => $request->getClientIp(),
         ]);
 
         $user->save();
 
+
         $tokenResult = $user->createToken('accessToken');
         $token = $tokenResult->token;
         $token->expires_at = Carbon::now()->addSeconds(config("auth.password_timeout"));
         $token->save();
+
+        SignedupProcessed::dispatch($user);
 
         return response()->json([
             'message' => 'Register Successful',
@@ -56,6 +62,32 @@ class UserSignupController extends Controller
             'accessToken' => $tokenResult->accessToken,
 
         ], 201);
+
+    }
+
+
+    public function emailSignupActive($token)
+    {
+
+        $user = User::where('activation_token', $token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'This activation token is Invalid!!'
+
+            ], 404);
+        }
+
+        $user->update([
+            $user->activation_token = '',
+            $user->email_verified_at = Carbon::now()
+        ]);
+
+
+        return response()->json([
+            'message' => 'Email has ben verified'
+
+        ], 200);
 
     }
 }

@@ -53,3 +53,16 @@ services:
         # platform: "linux/amd64"
         links:
             - mysql
+
+
+    mailhog:
+        image: "${MAILHOG_IMAGE}"
+        container_name: "${MAILHOG_CONTAINER_NAME}"
+        restart: "${MAILHOG_RESTART}"
+        depends_on:
+            - mysql
+        ports:
+            - "${MAILHOG_SERVER_PORT}:1025"
+            - "${MAILHOG_UI_PORT}:8025"
+        networks:
+            - tirgannet

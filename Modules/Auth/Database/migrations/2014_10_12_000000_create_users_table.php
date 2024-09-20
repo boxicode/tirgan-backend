@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('gender')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('activation_token')->unique()->nullable();
+            $table->string('activation_token')->nullable();
 
             $table->string('mobile_number')->unique()->nullable();
             $table->string('mobile_token')->unique()->nullable();
