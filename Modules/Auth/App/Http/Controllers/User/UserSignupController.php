@@ -20,7 +20,7 @@ class UserSignupController extends Controller
             'first_name' => ['string', 'max:255'],
             'last_name' => ['string', 'max:255'],
             'gender' => ['string', 'required'],
-            'email' => ['string', 'required', 'max:255', 'unique:users'],
+            'email' => ['email', 'required', 'max:255', 'unique:users'],
             'password' => ['string', 'required', 'confirmed'],
         ]);
 

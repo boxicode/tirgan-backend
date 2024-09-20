@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "40c6996f-0f0d-466d-9cce-c88f3e3b738f",
+		"name": "Tirgan API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11489907",
+		"_collection_link": "https://codeindev.postman.co/workspace/traning~0346068a-e503-49f1-9c7c-62aa733467cc/collection/11489907-40c6996f-0f0d-466d-9cce-c88f3e3b738f?action=share&source=collection_link&creator=11489907"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Admin",
+					"item": []
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Signup",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\" : \"hadi\",\n    \"last_name\" : \"mo\",\n    \"gender\" : \"آقا\",\n    \"email\" : \"hi@boxicode.com\",\n    \"password\" : \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/user/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"hi@boxicode.com\",\n    \"password\" : \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjc5NGIwYTljZjc5NWE5NTVhNDk4MzJlZGIyYjQxYTI0NmQxYjA3MTQ4MTgyNDRlM2EyNzFhNjlmYjhkMDdkZmM2ZmFlZTYxZTM0NGRmNGYiLCJpYXQiOjE3MjY4NTU3ODcuMTQ5MjE4LCJuYmYiOjE3MjY4NTU3ODcuMTQ5MjIxLCJleHAiOjE3NDI0OTQxODcuMTI4OTkyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ZXF6DOizmSqB32wdLmOcjoyM-DoVEDxQhDDzQzLFKag0OP3YoNXHtZFbiYE5U-egwByXgi1paWuyJEP4U92lPU1t7ZA--j_KqE1KyhHIlvJ-Bvw9bGlJlCU5V8MTBS0cgL3mPHOi-bswCn32SglmXibIrG_eEOEGs3kjoLVD93pScZXhCqjd4h-KXz22Ic1ENY3SYxTtTx62YDS5KpAVF8_qWXarNm4cAvz8xhpBJe7BaXwrtxcQQvicbQG3207Ps3ZZxEELags6V8rO4xuGr0vrcaAlqkKwwgqD1p_yHb8oynIBa_BSkWBX7ULOY5FiAo36-pTzV9PUeTHFs0tYjH9SkJneYJPScc0yNGsmHsPKNOD88vEGJi5BxYk7069Ji9MyEaSHWpKNtD7nR5hQ3o8DTtId6GdlLBM74B-riKW66P6b6T1XVrAlXs-sjwvqMpQ4DTyIx9tjsiZiOyoROwaj-AxHy8CRyp1_4lts21_IzEWMesnjhgDs_jKcjHFiDPwtuguQxhjfcs7Z1tc69JJJ8IuB4PN8N-xs8E4VK-gC9w71JRdTOTYkSRjXcgbr5U0Artvid6wph02Z2sOKnGYfa0DZ7jsJGriiQ1THvklghUedNRLCnpaKbuKN610A0x2TV1WWvhw9gNUIz8hISbxGUZpAOChTOMHvGM-FBbw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/user/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "profile",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTE0YjFhMjcwMDM0MjYzMjFkZjMzYzI5M2VmMGUxNjVkNzlhODU4YTU5YTJmNGJjMzU2Y2YzYTU2NWMzMmJlOTMyODRjZDI5M2VlNGI0MzkiLCJpYXQiOjE3MjY4NTYwMTQuNTcxOTIyLCJuYmYiOjE3MjY4NTYwMTQuNTcxOTI0LCJleHAiOjE3NDI0OTQ0MTQuNTYyNDM0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AYUHcAA8ReqMO4KxKzuWlC93cmkB24F_s6WLMqddgFRaPy0U-5TYoa4QVIdDUH6Ka0LXABv4PKi6YCNMyN5GlwEogDvQfCq4CwYkRA8duNbXcw844z8ZLHQIz2shSo6p9K8BO-eIi4RyV9vuneus_vS5IFS6f8wmamiJA9_Q7idJadIS44Kc9WDtA5_lxKJE4hS9QXrdb_ey6j7GoasEQaW08WCN3X04Pon8eXgv9UwRuuqyyD9q8B4k_BQBIXyytA-tsymJaQB9CbjG5w2cdP1Sbp7L7Lgy7FAGoaOnXZR3-n8SJcHRmmmhHG5Mm45w-SR23k_xZLsxjOpSACjyV2xfoJp2zMwhnmGnDDzY8x1LnJ_g0q_wK7ifbBog7oA3dwS7_Na1AAyXPRInzSZOvrrRTHThhFAb5iHI3hNcil6fse-1G067jkhnx3GIyCjkQM9ykwrqpcdwXWup5P6wNCPFPoX0iVdD9RzwT6C_iZs3lTrH69AKDkryfQlgJAzNHO4P9739gOwSAiOkio4vOq5yXw6jfbJE58q0zKNMgtpzsWsosrDBzv4YbvoGEze_K1blRXUUxEYEVo8s37LDYn6cjTasCZPUf8lVYhUFZQwld4gae3xPotLkVfZby76H2mGQkgzFsRzIiR37yqxPop04a46_YnUzlAov7a8wKgo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/user/profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": []
+		}
+	]
+}
